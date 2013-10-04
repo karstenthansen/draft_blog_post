@@ -20,8 +20,12 @@ library(ggplot2)
 library(gridExtra)
 library(knitr)
 library(dplyr)
-chunk_dir <- 'C:\\research\\variety\\blog\\chunks\\'
+library(gridSVG)
+chunk_dir <- 'C:\\research\\variety\\blog\\draft_blog_post\\chunks\\'
 read_chunk(paste(chunk_dir,"chunks_A.R",sep=""))
+```
+
+```{r functions.for.presentation}
 ```
 
 ```{r load.raw.data}
@@ -35,7 +39,7 @@ load('C:\\research\\variety\\blog\\data\\beta_stats.Rdata')
 
 Consider the following thought experiment: Suppose you lined up all product purchases you made over a year in some product category, e.g., canned tomatoes or paper towels. How similar would they be? An extreme case is that they were all the same, i.e., you always buy the same product, or they were all different, i.e., you never buy the same. How should we judge similarity in the more realistic scenaio where you buy a certain product quite often, but not all the time? We can start by calculating the number of times you chose your most preferred option divided by your total number of purchases. Then we we can do the same for your next most preferred, your third most preferred etc. The result will be probability distribution corresponding to the relative frequency with which you purchased the products in your choice portfolio. Here are two examples of choice frequency distributions: 
 
-```{r plot.hypothetical.choices, fig.width=10, fig.height=5, echo=FALSE}
+```{r plot.hypothetical.choices, results='asis', fig.keep='none'}
 ```
 
 The distribution on the left is quite skewed with the most preferred choice being made over 60% of the time. The distribution on the right is much more diffuse with the top choice being made only about 20% of the time. We define *choice concentration* as any measure that captures the degree of concentration among these choices. There is no unique way of doing this. A simple measure is simply the relative choice frequency of your most preferred option. Based on this measure we would say that the choices on the left are more than three times as concentrated than the choices on the right.
@@ -49,7 +53,7 @@ Here we will restrict ourselves to choices made in grocery retail and use a larg
 
 As a measure of choice concentration, we calculated the relative expenditure on a household's top choice and top two choices in a category compared to the houshold's total category expenditure. We call this the *concentration ratio* or CR1 (CR2 for the top two choices). The higher CR is, the more concentrated the household's spending is on the top choice. This is one of many possible measures of choice concentration. 
 
-```{r plot.average.cr, fig.width=8, fig.height=5}
+```{r plot.average.cr, results='asis', fig.keep='none'}
 ```
 
 This plot shows that for the average household, choices are highly concentrated in grocery retail. Note that a "choice" here is buying a single product out of all the possible products in a category, e.g., a particular brand, size, flavor etc. It is somewhat shocking that in categories where hundreds of alternatives are available, the average household spends between 30 and 50 percent of their expenditure on a *single* product (or 40 to 75 percent on the top two products). 
@@ -61,7 +65,7 @@ It seems clear that the answer to the question posed above - how similar or conc
 
 In the figure above we showed choice concentration for the average household. How large is the variation in this measure across across households? The plot below shows the distribution of CR1 across households for two categories. 
 
-```{r plot.distribution.cr1, fig.width=8, fig.height=5}
+```{r plot.distribution.cr1, results='asis', fig.keep='none'}
 ```
 
 This plot illustrates that not only does choice concentration vary across categories, it also strongly varies across households. Even in the Cereal category - on average a low concentration category - there is a segment of housholds with CR1 measures above 50 percent. Similarly, for Canned Peas, which on average is high in concentration, we see households who are highly concentrated in choices and households low in concentration. Can some of this variation be explained? And if so, does this provide new insights into the psychology of choice? 
